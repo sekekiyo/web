@@ -1,4 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page import="java.time.format.DateTimeFormatter"%>
+<%@page import="java.time.LocalDateTime"%>
+<%@page import="entity.Employee, java.text.SimpleDateFormat, java.util.Date, java.util.Calendar"%>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+    String employeeCode = (String) session.getAttribute("employeeCode");
+    String startWork = (String) session.getAttribute("startWork");
+    String finishWork = (String) session.getAttribute("finishWork");
+    String startBreak = (String) session.getAttribute("startBreak");
+    String finishBreak = (String) session.getAttribute("finishBreak");
+    if (employeeCode == null) {
+        response.sendRedirect("AttendanceLogin.jsp");
+    } else {
+%>
 <!DOCTYPE html>
 <html lang="ja">
     <head>
@@ -96,9 +109,7 @@
             id="disableFinishBreakButton" class="attendance_timecard">
     </form>
 
-    <%
-        } else {
-    %>
+    <%} else { %>
 
     <form action="AttendanceTimeCard" method="POST" class="attendance_form">
         <input type="hidden" name="attendance" value="休憩終了処理"> <input
@@ -106,13 +117,10 @@
             id="disableFinishBreakButton" disabled="disabled"
             class="attendance_timecard2">
     </form>
-
-    <%
-        }
-    %>
+  <%}%>
 
     <div class="a_logout_button">
-        <a href="attendance_login.jsp">
+        <a href="AttendanceLogin.jsp">
             <button class="display_button">メニューに戻る</button>
         </a>
     </div>
@@ -145,3 +153,6 @@
     </div>
 </body>
 </html>
+<%
+    }
+%>

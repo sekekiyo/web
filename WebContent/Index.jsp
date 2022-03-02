@@ -1,14 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+    session.removeAttribute("loginUserId");
+    session.removeAttribute("employeeCode");
+%>
 <!DOCTYPE html>
-<html lang="ja">
-    <head>
-        <meta charset="UTF-8">
-        <title>Heets Corporation</title>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Heets Corporation</title>
 <link rel="stylesheet" href="common/css/style.css">
 </head>
 <body>
     <div class="header">
-        <span class="big_title">H</span>eets <span class="big_title">C</span>orporation
+       <span class="big_title">H</span>eets <span class="big_title">C</span>orporation
     </div>
 
     <div class= "menu">
@@ -18,8 +23,8 @@
     </div>
     <div class="i_main_wrapper">
         <div class="employee_button">
-            <input type="button" class="regist_button" onclick="location.href='Login.jsp'" value="管理者用メニュー">
-            <input type="button" onclick="location.href='AttendanceLogin.jsp'" value="従業員用メニュー">
+            <input type="button" class="regist_button" onclick="location.href='login.jsp'" value="管理者用メニュー">
+            <input type="button" onclick="location.href='attendance_login.jsp'" value="従業員用メニュー">
         </div>
     </div>
 

@@ -1,4 +1,12 @@
+<%@page import="entity.Employee"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+    if (session.getAttribute("loginUserId") == null) {
+        response.sendRedirect("Login.jsp");
+    } else {
+        Employee employee = (Employee) session.getAttribute("employee");
+        if (employee != null) {
+%>
 <!DOCTYPE html>
 <html lang="ja">
     <head>
@@ -58,3 +66,9 @@
     </div>
 </body>
 </html>
+<%
+    } else {
+            response.sendRedirect("Menu.jsp");
+        }
+    }
+%>

@@ -1,4 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+    if (session.getAttribute("loginUserId") != null) {
+        response.sendRedirect("Menu.jsp");
+    } else {
+%>
 <!DOCTYPE html>
 <html lang="ja">
     <head>
@@ -51,3 +56,4 @@
     </div>
 </body>
 </html>
+<%}%>

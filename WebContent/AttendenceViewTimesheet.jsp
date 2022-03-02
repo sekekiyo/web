@@ -1,4 +1,24 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page import="java.time.LocalTime"%>
+<%@page import="java.time.format.DateTimeFormatter"%>
+<%@page import="java.time.LocalDate"%>
+<%@page import="java.util.List"%>
+<%@page import="entity.WorkTime"%>
+<%@page import="java.util.Calendar"%>
+<%@page import="entity.Employee"%>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<%
+    String employeeCode = (String) session.getAttribute("employeeCode");
+    if(employeeCode == null) {
+        response.sendRedirect("AttendanceLogin.jsp");
+    } else {
+        Calendar thisMonthCalendar = (Calendar) session.getAttribute("thisMonth");
+        if(thisMonthCalendar == null) {
+            response.sendRedirect("AttendanceMenu.jsp");
+        } else {
+            List<WorkTime> workTimeThisMonthList = (List<WorkTime>) session.getAttribute("workTimeThisMonthList");
+%>
+
 <!DOCTYPE html>
 <html lang="ja">
     <head>
@@ -43,7 +63,7 @@
             <%
                 for(WorkTime workTime: workTimeThisMonthList) {
                 String workDate =
-                        workTime.getWorkdate().format(DateTimeFormatter.ofPattern("dd"));
+                        workTime.getWorkDate().format(DateTimeFormatter.ofPattern("dd"));
                     if(Integer.parseInt(workDate) == i) {
             %>
                         <td><% if(workTime.getStartTime() != null) { %>
@@ -119,3 +139,6 @@
     </div>
 </body>
 </html>
+<%
+    }}
+%>

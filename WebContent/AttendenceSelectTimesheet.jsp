@@ -1,4 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page
+    import="entity.Employee, java.time.LocalDateTime, java.time.format.DateTimeFormatter"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<%
+    LocalDateTime now = LocalDateTime.now();
+    int year = now.getYear();
+    int month = now.getMonthValue();
+    String employeeCode = (String) session.getAttribute("employeeCode");
+    if (employeeCode == null) {
+        response.sendRedirect("AttendanceLogin.jsp");
+    } else {
+%>
 <!DOCTYPE html>
 <html lang="ja">
     <head>
@@ -88,3 +101,6 @@
     </div>
 </body>
 </html>
+<%
+    }
+%>

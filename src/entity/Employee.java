@@ -67,7 +67,7 @@ public class Employee {
         this.firstKanaName = firstKanaName;
     }
 
-    public int getGenter() {
+    public int getGender() {
         return gender;
     }
 

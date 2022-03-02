@@ -1,4 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+    if (session.getAttribute("loginUserId") != null) {
+        response.sendRedirect("Menu.jsp");
+    } else {
+%>
 <!DOCTYPE html>
 <html lang="ja">
     <head>
@@ -21,7 +26,7 @@
 
         <div class="logout_button">
             <input type="button" class="display_button" value="ログイン画面に戻る"
-                onclick="location.href='login.jsp';">
+                onclick="location.href='Login.jsp';">
         </div>
     </div>
 
@@ -54,3 +59,4 @@
     </div>
 </body>
 </html>
+<%}%>

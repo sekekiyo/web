@@ -1,4 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+    if (session.getAttribute("loginUserId") == null) {
+        response.sendRedirect("login.jsp");
+    } else {
+        String employeeCode = (String) session.getAttribute("employeeCode");
+%>
 <!DOCTYPE html>
 <html lang="ja">
     <head>

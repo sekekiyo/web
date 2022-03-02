@@ -83,7 +83,7 @@ public class EmployeeDAO {
         + "', first_name = '" + employee.getFirstName()
         + "', last_kana_name = '" + employee.getLastKanaName()
         + "', first_kana_name = '" + employee.getFirstKanaName()
-        + "', gender = '" + employee.getGenter()
+        + "', gender = '" + employee.getGender()
         + "', birth_day = '" + employee.getBirthDay()
         + "', section_code = '" + employee.getSectionCode()
         + "', hire_date = '" + employee.getHireDate()

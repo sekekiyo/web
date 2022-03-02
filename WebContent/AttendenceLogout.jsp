@@ -1,4 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+    if (session.getAttribute("employeeCode") != null) {
+        response.sendRedirect("AttendanceLogin.jsp");
+    } else {
+%>
 <!DOCTYPE html>
 <html lang="ja">
     <head>
@@ -17,7 +22,7 @@
     </div>
 
     <div class="main_wrapper">
-        <div class="main_admin"></div>
+        <div class="main_admin">終了</div>
 
         <div class="attendance_logout_button">
             <input type="button" class="display_button" value="ログイン画面に戻る"
@@ -53,3 +58,6 @@
     </div>
 </body>
 </html>
+<%
+}
+%>
